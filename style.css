@@ -1,0 +1,272 @@
+/* --- VARIABEL WARNA (Biar gampang ngaturnya) --- */
+:root {
+  --bg-color: #fcfaf8; /* Krem hangat / kertas tua */
+  --text-main: #3b332c; /* Cokelat gelap elegan, lebih hangat dari hitam */
+  --text-muted: #6b5f54;
+  --accent-gold: #c2a373; /* Emas pudar / vintage */
+  --card-bg: #ffffff;
+  --wa-green: #276943; /* Hijau WA yang digelapin biar lebih mewah */
+}
+
+/* --- RESET & FIX SCROLL SAMPING --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden; /* Mengunci biar layar HP gak bisa geser kiri-kanan */
+  background-color: var(--bg-color);
+}
+
+body {
+  /* Font utama tetap bersih, tapi nanti judulnya dipisah */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.7;
+  color: var(--text-main); 
+}
+
+/* Font khusus judul biar klasik & mewah */
+h1, h2, h3 {
+  font-family: "Georgia", "Times New Roman", serif;
+  font-weight: normal;
+}
+
+/* --- ANIMASI HALUS (Premium Load) --- */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- HERO SECTION --- */
+header.hero {
+  text-align: center;
+  background-color: var(--text-main);
+  color: var(--bg-color);
+  padding: 80px 20px;
+  border-bottom: 5px solid var(--accent-gold);
+  animation: fadeUp 1s ease-out; /* Animasi pas web dibuka */
+}
+
+header.hero h1 {
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  color: var(--accent-gold);
+}
+
+header.hero p {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #e8e2d9;
+}
+
+/* --- LAYOUT GLOBAL SECTION --- */
+/* Ini ngeberesin masalah margin yang bikin layar bocor di HP */
+section {
+  width: 90%;
+  max-width: 900px;
+  margin: 40px auto; /* Otomatis ke tengah */
+  padding: 30px;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  border-top: 3px solid var(--accent-gold);
+  box-shadow: 0 10px 30px rgba(59, 51, 44, 0.05); /* Shadow halus banget */
+  animation: fadeUp 1s ease-out backwards;
+}
+
+section h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  color: var(--text-main);
+  position: relative;
+  padding-bottom: 10px;
+}
+
+/* Garis bawah elegan di setiap judul section */
+section h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 2px;
+  background-color: var(--accent-gold);
+}
+
+/* --- LAYANAN --- */
+.layanan-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: space-between;
+}
+
+.layanan-card {
+  flex: 1;
+  min-width: 250px;
+  padding: 20px;
+  background-color: var(--bg-color);
+  border-left: 3px solid transparent;
+  transition: all 0.4s ease; /* Animasi transisi */
+}
+
+/* Efek interaktif elegan saat kursor diarahkan */
+.layanan-card:hover {
+  border-left: 3px solid var(--accent-gold);
+  transform: translateX(5px);
+  background-color: #fff;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.03);
+}
+
+.layanan-card h3 {
+  color: var(--accent-gold);
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+.layanan-card ul {
+  padding-left: 20px;
+  list-style-type: square;
+  color: var(--text-muted);
+}
+
+/* --- GALERI KARYA --- */
+.galeri-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.galeri-grid img {
+  width: 100%; /* Fix gambar kaku */
+  max-width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+  background-color: #eee;
+  /* Efek vintage: agak sepia di awal */
+  filter: sepia(0.4) brightness(0.9);
+  transition: all 0.5s ease;
+}
+
+/* Saat disentuh: warna asli muncul dan sedikit membesar */
+.galeri-grid img:hover {
+  filter: sepia(0) brightness(1.05);
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  z-index: 2;
+}
+
+/* --- ALUR PEMESANAN --- */
+.alur-list {
+  list-style: none;
+}
+
+.alur-list li {
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px dashed #e0d8cf;
+}
+
+.alur-list li:last-child {
+  border-bottom: none;
+}
+
+.alur-list h3 {
+  color: var(--text-main);
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.alur-list p {
+  color: var(--text-muted);
+  padding-left: 25px; /* Menggeser teks biar rapi di bawah angka */
+}
+
+/* --- INFO & KONTAK --- */
+.info {
+  text-align: center;
+}
+
+.info address {
+  font-style: normal;
+  margin-bottom: 20px;
+  color: var(--text-muted);
+}
+
+/* Tombol WA Mewah */
+.info .btn-wa {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 30px;
+  background-color: var(--wa-green);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 30px; /* Bentuk kapsul elegan */
+  font-family: "Segoe UI", sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(39, 105, 67, 0.3);
+  transition: all 0.3s ease;
+}
+
+/* Efek tombol di-hover */
+.info .btn-wa:hover {
+  background-color: #1e5234;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(39, 105, 67, 0.4);
+}
+
+/* --- STYLING WARNING BOX KESAMPING --- */
+.warning-box {
+  display: flex;
+  align-items: center; /* Bikin ikon & teks sejajar secara vertikal */
+  justify-content: center;
+  gap: 12px;
+  margin-top: 25px;
+  padding: 12px 18px;
+  background-color: #fff5f5; /* Warna latar merah muda sangat lembut */
+  border: 1px solid #feb2b2;  /* Border merah tipis */
+  border-radius: 6px;
+  text-align: left;
+}
+
+.warning-icon {
+  font-size: 1.3rem;
+  line-height: 1;
+  flex-shrink: 0; /* Biar ikon gak makin kecil kalau layar HP menyempit */
+}
+
+.warning-text {
+  font-size: 0.85rem;
+  color: #c53030; /* Warna teks merah tua biar keliatan tegas */
+  line-height: 1.4;
+  margin: 0 !important; /* Timpa margin p bawaan */
+  text-align: left !important; /* Timpa alignment p bawaan */
+}
+
+.warning-text strong {
+  font-weight: 700;
+  color: #9b2c2c;
+}
+
+/* --- FOOTER --- */
+footer {
+  text-align: center;
+  background-color: var(--text-main);
+  color: #a3998f;
+  padding: 40px 20px;
+  font-size: 13px;
+  margin-top: 50px;
+}
